@@ -1,4 +1,5 @@
 import yaml
+import yaml.loader
 from collections import OrderedDict
 
 
@@ -13,7 +14,7 @@ OrderedDumper.add_representer(OrderedDict, _dict_representer)
 
 
 def load(stream):
-    return yaml.load(stream)
+    return yaml.load(stream, Loader=yaml.loader.FullLoader)
 
 
 def dump(data, stream=None):
